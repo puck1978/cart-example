@@ -1,0 +1,39 @@
+@import "helper/variables";
+
+@import "layouts/header";
+@import "layouts/footer";
+
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons";
+
+
+[data-bs-theme="dark"] {
+  --bs-body-bg: #{$body-bg-dark};
+  --primary: #{$primary};
+  --primary-bg: darken($primary, 15);
+  --primary-hover: darken($primary, 30);
+  --primary-pastel: darken($primary, 60);
+  --secondary: var(--bs-gray-300);
+
+  --bs-gray-100: #212529;
+  --bs-gray-200: #495057;
+  --bs-gray-300: #dee2e6;
+  --bs-gray-400: #6c757d;
+  --bs-gray-500: #adb5bd;
+  --bs-gray-600: #ced4da;
+  --bs-gray-700: #343a40;
+  --bs-gray-800: #e9ecef;
+  --bs-gray-900: #f8f9fa;
+}
+
+.bd-mode-toggle i.bi {
+  font-size: 1em;
+}
+[data-bs-theme="dark"] .theme-icon-active {
+  color: #{$body-bg}
+}
+
+.price {
+  font-size: 1.5rem;
+  color:red;
+}

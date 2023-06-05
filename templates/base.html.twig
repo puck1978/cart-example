@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" href="{{ asset('build/images/favicon.ico') }}">
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+{# read and display just one flash message type #}
+{% for message in app.flashes('notice') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}
+
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (dark)">
+        <i class="bi bi-moon-stars-fill my-1 theme-icon-active" data-use="bi-moon-stars-fill"></i>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text" style="">
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun-fill me-2 opacity-50 theme-icon"></i>
+                Light
+                <i class="bi bi-check2 ms-auto d-none"></i>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="dark" aria-pressed="true">
+                <i class="bi bi-moon-stars-fill me-2 opacity-50 theme-icon"></i>
+                Dark
+                <i class="bi bi-check2 ms-auto d-none"></i>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                <i class="bi bi-circle-half me-2 opacity-50 theme-icon"></i>
+                Auto
+                <i class="bi bi-check2 ms-auto d-none"></i>
+            </button>
+        </li>
+    </ul>
+</div>
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img src="{{ asset('build/images/logo.svg') }}" height="52" width="278" alt="cart example logo">
+        </a>
+
+        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+            <li>
+                <a href="#" class="nav-link text-secondary text-center">
+                    <i class="bi bi-house d-block mx-auto mb-1" width="24" height="24"></i>
+                    Startseite
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-center">
+                    <i class="bi bi-gift d-block mx-auto mb-1" width="24" height="24"></i>
+                    Produkte
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-center">
+                    <i class="bi bi-cart d-block mx-auto mb-1" width="24" height="24"></i>
+                    Warenkorb
+                </a>
+            </li>
+        </ul>
+    </header>
+</div>
+{% block body %}{% endblock %}
+</body>
+</html>
